@@ -42,6 +42,27 @@
   </head>
 
   <body>
+        <!-- AUDIO -->
+    <audio id="music" loop>
+      <source src="music/everything u are - Hindia  Instrumental.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        var audio = document.getElementById("music");
+
+        // Unmute setelah halaman siap
+        window.addEventListener("load", function() {
+          setTimeout(() => {
+            audio.muted = false;
+            audio.play();
+          }, 1000);
+        });
+    </script>
+
+    <!-- BUTTON MUSIC -->
+    <div class="music-btn" onclick="toggleMusic()">
+      🎵
+    </div>
+
     <!-- Begin Preloader -->
     <div class="preloader-wrapper">
       <div class="preloader">
@@ -228,7 +249,7 @@
               <p class="waktu is-larger has-text-centered">
                 Akad Nikah:
                 <br>
-                <strong>17.00 WIB</strong>
+                <strong>15.00 WIB</strong>
               </p>
             
             </div>
@@ -238,7 +259,7 @@
               <h1 class="waktu is-larger has-text-centered">
                 Resepsi:
                 <br>
-                <strong>19.00  - 21.00 WIB</strong>
+                <strong>17.00  - 21.00 WIB</strong>
               </h1>
               
               
@@ -252,7 +273,7 @@
           <div class="column is-12 regular-section" data-aos="fade-up" data-aos-easing="linear">
             <h1 class="title has-text-centered section-title">Lokasi</h1>
             <p class="tempat is-larger has-text-centered">
-              <strong>Nama Tempat</strong>
+              <strong>Alamat</strong>
               <br>
               Dsn Mendek RT001/RW001 Desa Purut  
               <br>
@@ -394,11 +415,11 @@
                 Kami yang berbahagia,
                 <br>
                 <a class="instagram":" href="https://instagram.com/instagramaccount" target="_blank" alt="Instagram CPW">
-                  <i class="fab fa-instagram"></i> @instagramaccount
+                  <i class="fab fa-instagram"></i> @aripphh_
                 </a>
                 &nbsp
                 <a class="instagram" href="https://instagram.com/instagramaccount" target="_blank" alt="Instagram CPP">
-                  <i class="fab fa-instagram"></i> @instagramaccount
+                  <i class="fab fa-instagram"></i> @resiatul020
                 </a>
               </p>
 
@@ -425,5 +446,26 @@
         duration: 800,
       });
     </script>
+          <script>
+      var audio = document.getElementById("music");
+      var btn = document.querySelector(".music-btn");
+
+      // AUTOPLAY SETELAH KLIK PERTAMA
+      document.addEventListener("click", function () {
+        audio.play();
+        btn.classList.add("playing");
+      }, { once: true });
+
+      // TOGGLE PLAY / PAUSE
+      function toggleMusic() {
+        if (audio.paused) {
+          audio.play();
+          btn.classList.add("playing");
+        } else {
+          audio.pause();
+          btn.classList.remove("playing");
+        }
+      }
+      </script>
   </body>
 </html>
